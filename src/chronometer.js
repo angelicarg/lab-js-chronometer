@@ -1,17 +1,43 @@
 class Chronometer {
   constructor() {
-    // ... your code goes here
+    this.currentTime = 0;
+    this.intervalId = null;
   }
 
   start(printTimeCallback) {
-    // ... your code goes here
+    this.intervalId = setinterval(() => {
+      this.currentTime++;
+      if (printTimeCallback) {
+        printTimeCallback();
+      }
+    }, 1000);
   }
 
   getMinutes() {
-    // ... your code goes here
-  }
+    let crono = [];
+    let minutes = [];
+    if (this.currentTime === 0) {
+      return 0;
+    }
+    this.currentTime += crono;
+    minutes = Math.floor(crono.length / 60);
+    return minutes;
+  } // ... your code goes here
 
   getSeconds() {
+    const seconds = [];
+    if (this.currentTime === 0) {
+      return;
+    }
+    window.clearInterval(interval);
+    seconds += this.currentTime % 60;
+    if (seconds === 0) {
+      return 0;
+    }
+
+    if (seconds > 1) {
+      return seconds;
+    }
     // ... your code goes here
   }
 
@@ -20,10 +46,14 @@ class Chronometer {
   }
 
   stop() {
+    setTimeout('parar(this.currentTime);', null);
+    clearInterval(this.currentTime);
     // ... your code goes here
   }
 
   reset() {
+    this.currentTime = new this.currentTime();
+    this.currentTime = 0;
     // ... your code goes here
   }
 
